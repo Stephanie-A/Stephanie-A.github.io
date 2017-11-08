@@ -1,1 +1,1 @@
-# Stephanie-A.github.io
+# ENGL 1102 Project Artifact 3
