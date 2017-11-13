@@ -28,14 +28,18 @@
       function initMap() {
         var uluru = {lat: 33.775085, lng: -84.394408};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 18  ,
           center: uluru
         });
 
         var contentString1 = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
+<<<<<<< HEAD
             '<h1 id="firstHeading" class="firstHeading">Clue Two</h1>'+
+=======
+            '<h1 id="firstHeading" class="firstHeading">Site One</h1>'+
+>>>>>>> c70b22d6a3fe2fdd8a3bbf4cd61758a6b6b0eac1
             '<div id="bodyContent">'+
             '<p>We keep going and going, up flights of stairs until we cannot go anymore and see the end of the path; full of skyscrapers and a garden full of life surrounding us. That is when we look back and appreciate what we have done.'+
 //            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
@@ -114,6 +118,7 @@
               mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
+<<<<<<< HEAD
             var infowindow = new google.maps.InfoWindow();
 
             var marker, i;
@@ -131,6 +136,16 @@
                 }
               })(marker, i));
         }
+=======
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'Site One!'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+>>>>>>> c70b22d6a3fe2fdd8a3bbf4cd61758a6b6b0eac1
       }
     </script>
     <script async defer
