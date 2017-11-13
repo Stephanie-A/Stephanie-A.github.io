@@ -32,30 +32,105 @@
           center: uluru
         });
 
-        var contentString = '<div id="content">'+
+        var contentString1 = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Cite One</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Clue Two</h1>'+
             '<div id="bodyContent">'+
-            '<p>A bunch of random words to describe or hint regarding this area blah blah does this format correctly? we might need to add more lines within the code for it to format correctly'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
+            '<p>We keep going and going, up flights of stairs until we cannot go anymore and see the end of the path; full of skyscrapers and a garden full of life surrounding us. That is when we look back and appreciate what we have done.'+
+//            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+//            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+//            '(last visited June 22, 2009).</p>'+
             '</div>'+
             '</div>';
+          
+          var contentString2 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Clue Three</h1>'+
+            '<div id="bodyContent">'+
+            '<p>The Hint is Between the sound that keeps time and the tower, tall like a mast, Sits an old plaque that represents Georgia Tech’s past.'+
+//            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+//            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+//            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
+          
+          var contentString3 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Clue Four</h1>'+
+            '<div id="bodyContent">'+
+            '<p>This is the place you go when you want to succeed'+
+//            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+//            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+//            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
+          
+          var contentString4 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Clue One</h1>'+
+            '<div id="bodyContent">'+
+            '<p> Jump in if you dare' +
+            '<p> Or do your homework on the stairs' +
+            '<p> To watch all the water being shot in the air' +
+            '<p> If you see one of these you might stop and stare' +
+//            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+//            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+//            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
+          
+          var contentString5 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Instructions</h1>'+
+            '<div id="bodyContent">'+
+            '<ul>'+
+            '<li> Make sure you go to your own location'+
+            '<li> When you finish, meet at the library'+
+            '<li> If you haven\'t finished by 5:40, head to the library'+
+            '<li> Start out with one plus your group number and go in order'+
+            '<li> Zoom out to find all locations and your hints!'
+//            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+//            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+//            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
+          
+            var locations = [
+              [contentString1, 33.7749, -84.3964, 4],
+              [contentString2, 33.7736, -84.3952, 5],
+              [contentString3, 33.771829, -84.394391, 3],
+              [contentString4, 33.774728, -84.397343, 2],
+              [contentString5, 33.774051, -84.394089, 2],
+            ];
 
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 20,
+              center: new google.maps.LatLng(33.774051, -84.394089),
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
 
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-          title: 'Cite One!'
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) { 
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+              });
+
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(locations[i][0]);
+                  infowindow.open(map, marker);
+                }
+              })(marker, i));
+        }
       }
     </script>
     <script async defer
