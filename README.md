@@ -1,2 +1,2 @@
-# ENGL 1102 Project - Artifact 3
-Link: https://stephanie-a.github.io/Map.html
+# Personal Website for Stephanie Almeida
+Link: https://stephanie-a.github.io/index.html
