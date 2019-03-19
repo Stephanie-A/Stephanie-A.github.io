@@ -29,7 +29,7 @@ p {
 
 /* Links */
 a {
-  color: #94979C;
+  color: #0362bc;
   word-wrap: break-word;
 
   -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -154,7 +154,7 @@ li a:hover {
 }
 
 .about a {
-  color: #F1F1F5;
+  color: #D0D4DB;;
   font-size: 15px;
   word-wrap: break-word;
 
@@ -182,6 +182,10 @@ li a:hover {
   background: #2f2f2f;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.footer a {
+    color: #D0D4DB;
 }
 
 .footer p {
